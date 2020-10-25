@@ -1,14 +1,14 @@
 import React from 'react';
 
 
-const App =()=> {
+const Firebase =()=> {
   return (
     <div>
         <p>
-        App
+        Firebase
         </p>
     </div>
   );
 }
 
-export default App;
+export default Firebase;
