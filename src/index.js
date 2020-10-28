@@ -4,35 +4,15 @@ import './index.css';
 import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
 
-
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-//import createSagaMiddleware from 'redux-saga';
-
-import rootReducer from './redux/reducers'; // imports ./redux/reducers/index.js
-// const sagaMiddleware = createSagaMiddleware();
-
-
-// const middlewareList = process.env.NODE_ENV === 'development' ?
-//   [sagaMiddleware] :
-//   [sagaMiddleware];
-
-
-const store = createStore(
-  // tells the saga middleware to use the rootReducer
-  // rootSaga contains all of our other reducers
-   rootReducer
-  // // adds all middleware to our project including saga and logger
-  // applyMiddleware(...middlewareList),
+import Firebase, { FirebaseContext } from './components/Firebase';
  
-);
-
-
+//using firebase alongside react context api we are able to pass access 
+//to firebase down through all of our component tree through our index.js
 ReactDOM.render(
  
-    <Provider store={store}>
+  <FirebaseContext.Provider value={new Firebase()}>
     <App />
-  </Provider>,
+    </FirebaseContext.Provider>,
   document.getElementById('root')
 );
 
